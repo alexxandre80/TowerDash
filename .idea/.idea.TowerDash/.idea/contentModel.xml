@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Alexandre\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Alexandre\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_TowerDash.2036913414.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Alexandre\Desktop\TMPGITHUB3DJV\TowerDash" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="BallSpawnerScript.cs" t="Include" />
+          <e p="Cameralibre.cs" t="Include" />
+          <e p="CameraMotor.cs" t="Include" />
+          <e p="Deplacement.cs" t="Include" />
+          <e p="Joystick.cs" t="Include" />
+          <e p="MoveCubeScript.cs" t="Include" />
+          <e p="RealisticishJumpScript.cs" t="Include" />
+          <e p="RespwanZone.cs" t="Include" />
+        </e>
+        <e p="ThirdPersonneController.cs" t="Include" />
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="TowerDash.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
