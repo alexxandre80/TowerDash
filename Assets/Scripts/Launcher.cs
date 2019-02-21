@@ -5,7 +5,7 @@ using Photon.Pun;
 using Photon.Realtime;
 
 
-namespace Com.MyCompany.MyGame
+namespace Com.TowerDash.TowerDash
 {
 
     public class Launcher : MonoBehaviourPunCallbacks
@@ -46,7 +46,8 @@ namespace Com.MyCompany.MyGame
         bool isConnecting;
 
         #endregion
-
+    
+        public GameObject PlayerPrefab, SpawnPoint;
 
         #region MonoBehaviour CallBacks
 
@@ -56,7 +57,7 @@ namespace Com.MyCompany.MyGame
         /// </summary>
         void Awake()
         {
-            // #Critical
+
             // cela garantit que nous pouvons utiliser PhotonNetwork.LoadLevel ()
             // sur le client maître et que tous les clients de la même room
             // synchronisent automatiquement leur niveau.
@@ -96,13 +97,13 @@ namespace Com.MyCompany.MyGame
             // nous vérifions si nous sommes connectés ou non, nous rejoignons si nous sommes, sinon nous établissons la connexion au serveur.
             if (PhotonNetwork.IsConnected)
             {
-                // #Critical nous avons besoin à ce stade d'essayer de rejoindre une salle aléatoire.
+                // #Nous avons besoin à ce stade d'essayer de rejoindre une salle aléatoire.
                 // Si cela échoue, nous en serons informés dans OnJoinRandomFailed () et nous en créerons un.
                 PhotonNetwork.JoinRandomRoom();
             }
             else
             {
-                // #Critical, nous devons d’abord et avant tout nous connecter à Photon Online Server.
+                // #Nous devons d’abord et avant tout nous connecter à Photon Online Server.
                 PhotonNetwork.GameVersion = gameVersion;
                 PhotonNetwork.ConnectUsingSettings();
             }
@@ -123,7 +124,7 @@ namespace Com.MyCompany.MyGame
         // quand ce niveau est chargé, OnConnectedToMaster sera appelé, dans ce cas
         // nous ne voulons rien faire.
         if (isConnecting){
-        // #Critical: Le premier que nous essayons de faire est de rejoindre une salle existante potentielle.
+        // #Le premier que nous essayons de faire est de rejoindre une salle existante potentielle.
         // S'il y en a, bien, sinon, nous serons rappelés avec OnJoinRandomFailed ()
         PhotonNetwork.JoinRandomRoom();
         }
@@ -144,24 +145,23 @@ namespace Com.MyCompany.MyGame
     {
         Debug.Log("PUN Basics Tutorial/Launcher:OnJoinRandomFailed() a été appelé par PUN. Aucune salle aléatoire disponible, nous en créons une. \nAppel: PhotonNetwork.CreateRoom");
 
-        // #Critical: nous n'avons pas réussi à rejoindre une salle au hasard, peut-être qu'il n'en existe aucune
+        // #Nous n'avons pas réussi à rejoindre une salle au hasard, peut-être qu'il n'en existe aucune
         // ou qu'elles sont toutes pleines. Pas de soucis, nous créons une nouvelle salle.
         PhotonNetwork.CreateRoom(null, new RoomOptions { MaxPlayers = maxPlayersPerRoom });
     }
 
     public override void OnJoinedRoom()
     {
-        // #Critical: Nous ne chargeons que si nous sommes le premier joueur, sinon nous comptons sur
+        // #Nous ne chargeons que si nous sommes le premier joueur, sinon nous comptons sur
         // `PhotonNetwork.AutomaticallySyncScene` pour synchroniser notre scène d'instance.
         if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
             Debug.Log("Nous chargeons le monde 'NewMap' ");
 
-
-            // #Critical
             // Charger le niveau de la pièce.
             PhotonNetwork.LoadLevel("NewMap");
         }
+  
         Debug.Log("PUN Basics Tutorial/Launcher: OnJoinedRoom() appelé par PUN. Maintenant ce client est dans une room.");
     }
 

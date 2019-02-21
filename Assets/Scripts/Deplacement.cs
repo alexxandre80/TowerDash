@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Deplacement : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-    public float jumpSpeed = 20f;
+    //public float jumpSpeed = 20f;
     public float drag = 0.5f;
     public float terminalRotationSpeed = 25.0f;
     
-    public bool Canjump = false;
     public Joystick moveJoystick;
 
+    
+    public float jumpForce = 7;
+    
     private Rigidbody controller;
     private Transform camTransform;
     
@@ -23,7 +26,7 @@ public class Deplacement : MonoBehaviour
         controller = GetComponent<Rigidbody>();
         controller.maxAngularVelocity = terminalRotationSpeed;
         controller.drag = drag;
-
+        
         camTransform = Camera.main.transform;
     }
 
@@ -43,6 +46,11 @@ public class Deplacement : MonoBehaviour
         {
             direction = moveJoystick.InputDirection;
         }
+
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        {
+            DoJump();
+        }
         
         //Faire pivoter notre vecteur de direction avec la caméra
         Vector3 rotatedDir = camTransform.TransformDirection(direction);
@@ -51,5 +59,14 @@ public class Deplacement : MonoBehaviour
         
         controller.AddForce(rotatedDir * moveSpeed);
     }
+    
+    public void DoJump(){
 
-}
+        if (controller.velocity.y == 0)
+        {
+            controller.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
+}   
+
