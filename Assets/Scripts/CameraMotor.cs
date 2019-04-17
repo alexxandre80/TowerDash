@@ -30,10 +30,10 @@ public class CameraMotor : MonoBehaviour
     void Update()
     {
         //Faire tourner la camera autour du personnage avec Q et D
-        if (Input.GetKeyDown(KeyCode.Q))
-            SlideCamera(true);
-        else if (Input.GetKeyDown(KeyCode.D))
-            SlideCamera(false);
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //    SlideCamera(true);
+        //else if (Input.GetKeyDown(KeyCode.D))
+        //    SlideCamera(false);
         
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
         {
