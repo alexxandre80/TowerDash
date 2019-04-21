@@ -10,33 +10,14 @@ using Photon.Pun;
 using Photon.Realtime;
 
 
-namespace Com.TowerDash.TowerDash
+namespace Com.MyCompany.MyGame
 {
     public class GameManager : MonoBehaviourPunCallbacks
     {
-        
-        [Tooltip("Le préfabriqué à utiliser pour représenter le joueur")]
-        public GameObject playerPrefab;
 
 
         #region Photon Callbacks
 
-
-        void Start()
-        {
-            if (playerPrefab == null)
-            {
-                Debug.LogError(
-                    "<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'",
-                    this);
-            }
-            else
-            {
-                Debug.Log("We are Instantiating LocalPlayer from " + Application.loadedLevelName);
-                // nous sommes dans une chambre. générer un personnage pour le joueur local. il est synchronisé à l’aide de PhotonNetwork.Instantiate
-                //PhotonNetwork.Instantiate(this.playerPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
-            }
-        }
 
         /// <summary>
         /// Appelé lorsque le joueur local a quitté la salle. Nous devons charger la scène du lanceur.
