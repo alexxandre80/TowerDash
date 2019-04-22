@@ -14,7 +14,8 @@ namespace MyPhotonProject.Scripts
             Down,
             Right, 
             Up,
-            Bump
+            Bump,
+            Shoot,
         }
 
         private static readonly Dictionary<int, Dictionary<PlayerAction, KeyCode>> keys =
@@ -27,7 +28,8 @@ namespace MyPhotonProject.Scripts
                         {PlayerAction.Down, KeyCode.S},
                         {PlayerAction.Right, KeyCode.D},
                         {PlayerAction.Up, KeyCode.Z},
-                        {PlayerAction.Bump, KeyCode.Space}
+                        {PlayerAction.Bump, KeyCode.M},
+                        {PlayerAction.Shoot, KeyCode.Space}
                     }
                 },
                 {
@@ -37,7 +39,8 @@ namespace MyPhotonProject.Scripts
                         {PlayerAction.Down, KeyCode.DownArrow},
                         {PlayerAction.Right, KeyCode.RightArrow},
                         {PlayerAction.Up, KeyCode.UpArrow},
-                        {PlayerAction.Bump, KeyCode.RightControl}
+                        {PlayerAction.Bump, KeyCode.RightControl},
+                        {PlayerAction.Shoot, KeyCode.Space}
                     }
                 },
                 {
@@ -47,7 +50,8 @@ namespace MyPhotonProject.Scripts
                         {PlayerAction.Down, KeyCode.K},
                         {PlayerAction.Right, KeyCode.L},
                         {PlayerAction.Up, KeyCode.I},
-                        {PlayerAction.Bump, KeyCode.H}
+                        {PlayerAction.Bump, KeyCode.H},
+                        {PlayerAction.Shoot, KeyCode.N}    
                     }
                 },
                 {
@@ -57,7 +61,8 @@ namespace MyPhotonProject.Scripts
                         {PlayerAction.Down, KeyCode.Keypad5},
                         {PlayerAction.Right, KeyCode.Keypad6},
                         {PlayerAction.Up, KeyCode.Keypad8},
-                        {PlayerAction.Bump, KeyCode.KeypadEnter}
+                        {PlayerAction.Bump, KeyCode.KeypadEnter},
+                        {PlayerAction.Shoot, KeyCode.B}
                     }
                 }
             };
@@ -108,6 +113,16 @@ namespace MyPhotonProject.Scripts
             if (Input.GetKeyDown(keys[avatarIndex][PlayerAction.Bump]))
             {
                 WantToBumpIntent = true;
+            }
+
+            if (Input.GetKeyDown(keys[avatarIndex][PlayerAction.Shoot]))
+            {
+                WantToShoot = true;
+            }
+
+            if (Input.GetKeyUp(keys[avatarIndex][PlayerAction.Shoot]))
+            {
+                WantToShoot = false;
             }
         }
     }

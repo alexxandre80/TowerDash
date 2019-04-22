@@ -9,5 +9,7 @@ namespace MyPhotonProject.Scripts
         public bool WantToMoveLeft { get; set; }
         public bool WantToMoveRight { get; set; }
         public bool WantToBumpIntent { get; set; }
+
+        public bool WantToShoot { get; set; }
     }
 }

@@ -114,6 +114,8 @@ namespace MyPhotonProject.Scripts
                 activatedIntentReceivers[i].WantToMoveBack = false;
                 activatedIntentReceivers[i].WantToMoveRight = false;
                 activatedIntentReceivers[i].WantToMoveForward = false;
+
+                //activatedIntentReceivers[i].WantToShoot = false;
             }
         }
 
