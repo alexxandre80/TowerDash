@@ -16,6 +16,7 @@ namespace MyPhotonProject.Scripts
             Up,
             Bump,
             Shoot,
+            //Jump,
         }
 
         private static readonly Dictionary<int, Dictionary<PlayerAction, KeyCode>> keys =
@@ -29,7 +30,8 @@ namespace MyPhotonProject.Scripts
                         {PlayerAction.Right, KeyCode.D},
                         {PlayerAction.Up, KeyCode.Z},
                         {PlayerAction.Bump, KeyCode.M},
-                        {PlayerAction.Shoot, KeyCode.Space}
+                        {PlayerAction.Shoot, KeyCode.K}
+                        //{PlayerAction.Jump, KeyCode.Space}
                     }
                 },
                 {
@@ -40,7 +42,8 @@ namespace MyPhotonProject.Scripts
                         {PlayerAction.Right, KeyCode.RightArrow},
                         {PlayerAction.Up, KeyCode.UpArrow},
                         {PlayerAction.Bump, KeyCode.RightControl},
-                        {PlayerAction.Shoot, KeyCode.Space}
+                        {PlayerAction.Shoot, KeyCode.P}
+                        //{PlayerAction.Jump, KeyCode.O}
                     }
                 },
                 {
@@ -51,7 +54,8 @@ namespace MyPhotonProject.Scripts
                         {PlayerAction.Right, KeyCode.L},
                         {PlayerAction.Up, KeyCode.I},
                         {PlayerAction.Bump, KeyCode.H},
-                        {PlayerAction.Shoot, KeyCode.N}    
+                        {PlayerAction.Shoot, KeyCode.N}
+                        //{PlayerAction.Jump, KeyCode.U}    
                     }
                 },
                 {
@@ -63,6 +67,7 @@ namespace MyPhotonProject.Scripts
                         {PlayerAction.Up, KeyCode.Keypad8},
                         {PlayerAction.Bump, KeyCode.KeypadEnter},
                         {PlayerAction.Shoot, KeyCode.B}
+                        //{PlayerAction.Jump, KeyCode.V}
                     }
                 }
             };
@@ -124,6 +129,20 @@ namespace MyPhotonProject.Scripts
             {
                 WantToShoot = false;
             }
+
+
+
+            /*
+            if (Input.GetKeyDown(keys[avatarIndex][PlayerAction.Jump]))
+            {
+                WantToJump = true;
+            }
+
+            if (Input.GetKeyUp(keys[avatarIndex][PlayerAction.Jump]))
+            {
+                WantToJump = false;
+            }*/
+
         }
     }
 }

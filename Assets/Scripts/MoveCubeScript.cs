@@ -41,7 +41,7 @@ public class MoveCubeScript : MonoBehaviour
                 Vector3.right * Time.deltaTime * moveSpeed;
         }
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             Fire();
         }

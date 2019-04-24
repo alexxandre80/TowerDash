@@ -6,7 +6,7 @@ public class MiniMap : MonoBehaviour
 {
 
     public GameObject minimap;
-    private bool minimapActive = true;
+    private bool minimapActive = false;
     // Start is called before the first frame update
     void Start()
     {
